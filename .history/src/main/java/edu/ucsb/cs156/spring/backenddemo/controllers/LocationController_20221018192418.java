@@ -28,7 +28,7 @@ public class LocationController {
     @Autowired
     LocationQueryService locationQueryService;
 
-    @ApiOperation(value="Get a location, eg Isla Vista")
+    @ApiOperation(value="Get a location, eg: Eiffel Tower ")
     @GetMapping("/get")
     public ResponseEntity<String> getLocations(
         @ApiParam("location") @RequestParam String location
