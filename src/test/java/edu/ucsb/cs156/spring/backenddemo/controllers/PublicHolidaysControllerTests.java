@@ -54,6 +54,7 @@ public class PublicHolidaysControllerTests {
     String responseString = response.getResponse().getContentAsString();
 
     assertEquals(fakeJsonResult, responseString);
+    
   }
 
 }
