@@ -9,10 +9,6 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.client.MockRestServiceServer;
 
 
-
-
-
-
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -38,7 +34,7 @@ public class PublicHolidayQueryServiceTests {
     private PublicHolidayQueryService publicHolidayQueryService;
 
     @Test
-    public void test_getLocations() throws URISyntaxException, UnsupportedEncodingException, JsonProcessingException {
+    public void test_getJSON() throws URISyntaxException, UnsupportedEncodingException, JsonProcessingException {
         String countryCode = "408";
         String year = "2001";
 
@@ -52,7 +48,7 @@ public class PublicHolidayQueryServiceTests {
                 .andExpect(header("Content-Type", MediaType.APPLICATION_JSON.toString()))
                 .andRespond(withSuccess(fakeJsonResult, MediaType.APPLICATION_JSON));
         
-        String actualResult = PublicHolidayQueryService.getJSON(year, countryCode);
+        String actualResult = publicHolidayQueryService.getJSON(year, countryCode);
         // log.info("actualResult= ",actualResult );
         assertEquals(fakeJsonResult, actualResult);
     }
