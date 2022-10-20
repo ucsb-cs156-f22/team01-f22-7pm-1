@@ -29,14 +29,14 @@ import java.util.Map;
 import org.springframework.http.HttpHeaders;
 @Slf4j
 
-@WebMvcTest(value = PublicHolidayController.class)
-public class PublicHolidayControllerTests {
+@WebMvcTest(value = PublicHolidaysController.class)
+public class PublicHolidaysControllerTests {
   private ObjectMapper mapper = new ObjectMapper();
   @Autowired
   private MockMvc mockMvc;
   @MockBean
   PublicHolidayQueryService mockPublicHolidayQueryService;
-  
+
   @Test
   public void test_getPublicHoliday() throws Exception {
   

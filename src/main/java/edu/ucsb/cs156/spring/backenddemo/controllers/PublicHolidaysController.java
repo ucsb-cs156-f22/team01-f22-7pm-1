@@ -22,7 +22,7 @@ import io.swagger.annotations.ApiParam;
 @Slf4j
 @RestController
 @RequestMapping("/api/publicholidays")
-public class PublicHolidayController {
+public class PublicHolidaysController {
 
     ObjectMapper mapper = new ObjectMapper();
 
