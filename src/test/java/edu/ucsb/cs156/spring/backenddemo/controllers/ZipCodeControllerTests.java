@@ -32,7 +32,7 @@ public class ZipCodeControllerTests {
 
 
   @Test
-  public void test_getZipCodes() throws Exception {
+  public void test_getZipCode() throws Exception {
   
     String fakeJsonResult="{ \"fake\" : \"result\" }";
     String zipcode = "93117";
