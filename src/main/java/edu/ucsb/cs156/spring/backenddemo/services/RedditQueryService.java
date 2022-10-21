@@ -7,7 +7,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.springframework.web.client.RestTemplate;
 
-import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -22,6 +21,8 @@ import org.springframework.web.client.HttpClientErrorException;
 @Slf4j
 @Service
 public class RedditQueryService {
+
+    ObjectMapper mapper = new ObjectMapper();
 
     private final RestTemplate restTemplate;
 
@@ -40,7 +41,7 @@ public class RedditQueryService {
 
         Map<String, String> uriVariables = Map.of("subreddit", subreddit);
 
-        HttpEntity<String> entity = new HttpEntity<>(headers);
+        HttpEntity<String> entity = new HttpEntity<>("body", headers);
 
         ResponseEntity<String> re = restTemplate.exchange(ENDPOINT, HttpMethod.GET, entity, String.class,
                 uriVariables);
