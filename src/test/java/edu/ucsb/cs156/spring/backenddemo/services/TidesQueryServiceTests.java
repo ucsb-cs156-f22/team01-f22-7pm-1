@@ -13,7 +13,7 @@ import static org.springframework.test.web.client.response.MockRestResponseCreat
 
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.header;
 
-@RestClientTest(TidesQueryServiceTests.class)
+@RestClientTest(TidesQueryService.class)
 public class TidesQueryServiceTests {
 
     @Autowired
@@ -21,12 +21,12 @@ public class TidesQueryServiceTests {
 
     @Autowired
     private TidesQueryService tidesQueryService;
-
+    
     @Test
     public void test_getJSON() {
 
-        String beginDate = "20221018"; //yyyymmdd
-        String endDate = "20221019"; //yyyymmdd
+        String beginDate = "20221020"; //yyyymmdd
+        String endDate = "20221021"; //yyyymmdd
         String station = "9411340"; // Santa Barbara Station code
         String expectedURL = TidesQueryService.ENDPOINT.replace("{beginDate}", beginDate)
                 .replace("{endDate}", endDate).replace("{station}", station);

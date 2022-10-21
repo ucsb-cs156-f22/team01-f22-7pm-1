@@ -1,8 +1,6 @@
 package edu.ucsb.cs156.spring.backenddemo.services;
 
-
-
-import com.fasterxml.jackson.databind.ObjectMapper;
+//import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.springframework.web.client.RestTemplate;
 
@@ -15,23 +13,16 @@ import org.springframework.boot.web.client.RestTemplateBuilder;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
-
-
-import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpClientErrorException;
 
 @Slf4j
 @Service
 public class TidesQueryService {
 
-    ObjectMapper mapper = new ObjectMapper();
-    
     private final RestTemplate restTemplate;
 
     public TidesQueryService(RestTemplateBuilder restTemplateBuilder) {
