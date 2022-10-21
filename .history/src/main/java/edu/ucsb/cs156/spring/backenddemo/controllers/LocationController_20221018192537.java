@@ -1,7 +1,6 @@
 package edu.ucsb.cs156.spring.backenddemo.controllers;
 
-import edu.ucsb.cs156.spring.backenddemo.services.PublicHolidayQueryService;
-
+import edu.ucsb.cs156.spring.backenddemo.services.LocationQueryService;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,26 +17,24 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
-@Api(description=" public holiday code from https://date.nager.at/api/v2/publicholidays/")
+@Api(description="Location info from https://public.opendatasoft.com/explore/dataset/countries-codes")
 @Slf4j
 @RestController
-@RequestMapping("/api/publicholidays")
-public class PublicHolidaysController {
+@RequestMapping("/api/locations")
+public class LocationController {
 
     ObjectMapper mapper = new ObjectMapper();
 
     @Autowired
-    PublicHolidayQueryService publicHolidayQueryService;
+    LocationQueryService locationQueryService;
 
-    @ApiOperation(value="Get a public holiday in a specific year and country", notes="Public Holiday data from date.nager")
+    @ApiOperation(value="Get a location, eg Isla Vista ")
     @GetMapping("/get")
-    public ResponseEntity<String> getPublicHoliday(
-        @ApiParam("year, e.g. 2001") @RequestParam String year,
-        @ApiParam("countryCode, e.g. US") @RequestParam String countryCode
-
+    public ResponseEntity<String> getLocations(
+        @ApiParam("location") @RequestParam String location
     ) throws JsonProcessingException {
-        log.info("getPublicHoliday: year={}, countryCode={}", year, countryCode);
-        String result = publicHolidayQueryService.getJSON(year, countryCode);
+        log.info("getLocation: location={}", location);
+        String result = locationQueryService.getJSON(location);
         return ResponseEntity.ok().body(result);
     }
 
